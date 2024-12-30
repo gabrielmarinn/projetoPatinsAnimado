@@ -52,3 +52,10 @@ h2 {
   font-size: var(--text-lg);
   line-height: 1.2;
 }
+
+a {
+  /* Herdando cor do elemento pai em que estiver */
+  color: inherit;
+  /* Retirando padrao de decoração de link */
+  text-decoration: none;
+}
