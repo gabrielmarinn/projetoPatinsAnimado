@@ -1,0 +1,134 @@
+footer {
+  /* Definindo largura maxima */
+  max-width: 80rem;
+  /* Largura */
+  width: 100%;
+  /* Espaçamento interno de 4rem cima, 2rem lateral, 2rem baixo */
+  padding: 4rem 2rem 2rem;
+  /* Centrailizando com espaçamento externo */
+  margin-inline: auto;
+  /* Display flex para mover os elementos dentro do container */
+  display: flex;
+  /* Alinhamento no eixo Y */
+  align-items: center;
+  /* Espaçamento por igual entre os elementos no eixo X */
+  justify-content: space-between;
+
+  & .logo {
+    /* Display flex para mover os elementos dentro do container */
+    display: flex;
+    /* Alinhamento no eixo Y */
+    align-items: center;
+    /* Espaçamento entre os elementos */
+    gap: 0.75rem;
+    /* Definindo font */
+    font: 700 1.25rem/1.3 "Syne", sans-serif;
+
+    & img {
+      /* Largura */
+      width: 2rem;
+      /* Transição da imagem */
+      transition: rotate 350ms;
+      /* Rotação da imagem ao estar com o mouse em cima */
+      &:hover {
+        rotate: 90deg;
+      }
+    }
+  }
+
+  & nav {
+    /* Display flex para mover os elementos dentro do container */
+    display: flex;
+    /* Espaçamento entre elementos */
+    gap: 2rem;
+
+    & a {
+      /* Largura fit-content para ser aplicado somente no conteudo */
+      width: fit-content;
+      /* Position relative para ser movimentado dentro do container */
+      position: relative;
+
+      &:hover::after {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    & a::after {
+      /* Criando elemento vazio com css */
+      content: "";
+      /* Largura */
+      width: 100%;
+      /* Altura */
+      height: 2px;
+      /* Cor de fundo */
+      background-color: var(--snitap-sky-mid);
+      /* Position absolute dentro do container em que estiver */
+      position: absolute;
+      /* Posicionamento baixo e esquerda */
+      bottom: 0;
+      left: 0;
+      /* Opacidade na tela */
+      opacity: 0;
+      /* Transform no eixo X e transicao linear */
+      transform: scaleX(0);
+      transition: transform 200ms linear;
+    }
+  }
+
+  & .social-links {
+    /* Display flex para mover os elementos dentro do container */
+    display: flex;
+    /* Alinhamento eixo Y */
+    align-items: center;
+
+    & a {
+      /* Largura e altura dos links */
+      width: 2.5rem;
+      height: 2.5rem;
+      /* Display flex para mover os elementos dentro do container */
+      display: flex;
+      /* Alinhamento no eixo Y */
+      align-items: center;
+      /* Alinhamento no eixo X */
+      justify-content: center;
+      /* Arredondamento de borda */
+      border-radius: 5rem;
+      /* Posicao relativa dentro do container que estiver */
+      position: relative;
+
+      &:hover::before {
+        /* Ao passar o mouse em cima tornar visivel o before */
+        scale: 1;
+      }
+
+      & img {
+        /* Largura */
+        width: 1.5rem;
+        /* Altura */
+        height: auto;
+      }
+
+      &::before {
+        /* Criando elemento vazio com css */
+        content: "";
+        /* Herdando do elemento pai a largura, altura e arredondamento de borda */
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        /* Fundo */
+        background: var(--snitap-sun);
+        /* Position absolute no container em que estiver */
+        position: absolute;
+        /* Posicionamento cima e esquerda */
+        top: 0;
+        left: 0;
+        /* Afastando da tela com eixo Z -1 */
+        z-index: -1;
+        /* Scale 0 para se manter escondindo e a transition de escala em 200ms */
+        scale: 0;
+        transition: scale 200ms;
+      }
+    }
+  }
+}
