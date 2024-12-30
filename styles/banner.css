@@ -1,0 +1,55 @@
+.banner {
+  /* Largura */
+  width: 100%;
+  /* Espaçamento interno no começo e no fim do elemento */
+  padding-block: 2.5rem;
+  /* Escondendo qualquer tipo de transbordamento da caixa */
+  overflow: hidden;
+
+  .scroller {
+    /* Largura da caixa */
+    width: 100%;
+    /* Escondendo qualquer tipo de transbordamento da caixa */
+    overflow: hidden;
+    /* Espaçamento interno no começo e no fim do elemento */
+    padding-block: 1rem;
+  }
+
+  .rolling {
+    /* Display flexivel para organizar elemento no container */
+    display: flex;
+    /* Espaçamento entre os elementos */
+    gap: 1.5rem;
+    /* animacao rolling com 2s de duracao de forma linear infinito */
+    animation: rolling 2s linear infinite;
+  }
+
+  .bg-gradient-animate {
+    /* Fundo do elemento em degrade */
+    background: linear-gradient(
+      45deg,
+      var(--snitap-sky-light),
+      var(--snitap-joy-light)
+    );
+    /* Tamanho do fundo */
+    background-size: 400%;
+    /* Posicionamento do fundo */
+    background-position: 0 50%;
+    /* Animação do movimento do background */
+    animation: bg-gradient 20s ease infinite;
+  }
+}
+
+@keyframes bg-gradient {
+  50% {
+    /* Posicionamento do fundo */
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes rolling {
+  to {
+    /* TranslateX para se mover -132px conforme a animação bg-gradiente */
+    transform: translateX(-132px);
+  }
+}

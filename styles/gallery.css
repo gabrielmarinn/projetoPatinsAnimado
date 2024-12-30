@@ -1,0 +1,142 @@
+section.gallery {
+  /* Largura */
+  width: 100%;
+  /* Largura maxima do container */
+  max-width: 80rem;
+  /* Espaçamento interno de 2.5rem cima e baixo e 2rem lateral */
+  padding: 2.5rem 2rem;
+  /* Centralizando com espaçamento externo */
+  margin-inline: auto;
+
+  & header {
+    /* Alinhamento de texto */
+    text-align: center;
+  }
+
+  & header span {
+    /* Definindo font para span dentro do header */
+    font: 500 var(--text-sm) / 1.5 var(--ff-base);
+  }
+
+  & img {
+    /* Largura */
+    width: 100%;
+    /* Altura */
+    height: auto;
+  }
+
+  & .content {
+    /* Espaçamento externo em cima */
+    margin-top: 2rem;
+    /* Display grid para montar um template de imagens */
+    display: grid;
+    /* Definindos as areas do template */
+    grid-template-areas:
+      "A B B"
+      "C C D";
+    /* Espaçamento entre os elementos */
+    gap: 2.5rem;
+  }
+
+  & figure {
+    /* Posicao relative para figure poder ser deslocado dentro do container */
+    position: relative;
+    /* Arredondamento de borda */
+    border-radius: 2.5rem;
+    /* Escondendo transbordamento do container */
+    overflow: hidden;
+    /* Tamanho de linha */
+    line-height: 0;
+
+    animation: image-appear linear backwards;
+    animation-timeline: view();
+    animation-range: 100px 300px;
+
+    &[data-delay] {
+      animation-range: 150px 350px;
+    }
+
+    & > img {
+      /* Altura de img */
+      height: 25rem;
+      /* Ajuste de elemento dentro do container em que estiver */
+      object-fit: cover;
+      /* Definindo velocidade para transicao de escala para 500ms */
+      transition: scale 500ms;
+    }
+
+    &:hover {
+      & > img {
+        /* Alterando escala da imagem para 1.1 quando estiver com o mouse em cima */
+        scale: 1.1;
+      }
+
+      figcaption {
+        /* Posicionamento do figcaption abaixo da imagem */
+        transform: translateY(0);
+      }
+    }
+    /* Posicionamento de imagens dentro do grid */
+    &:nth-child(1) {
+      grid-area: A;
+    }
+
+    &:nth-child(2) {
+      grid-area: B;
+    }
+
+    &:nth-child(3) {
+      grid-area: C;
+    }
+
+    &:nth-child(4) {
+      grid-area: D;
+    }
+  }
+
+  & figcaption {
+    /* Display flex para movimentar elementos filhos */
+    display: flex;
+    /* Alinhamento no eixo Y */
+    align-items: center;
+    /* Alinhamento no eixo X */
+    justify-content: flex-end;
+    /* Espaçamento entre elementos */
+    gap: 0.5rem;
+    /* Definindo font e cor */
+    font: 500 var(--text-sm) / 1.5 var(--ff-base);
+    color: white;
+    /* Posição absolute para sobrepor elementos do container em que estiver */
+    position: absolute;
+    /* Posicionamento embaixo */
+    bottom: 0;
+    /* Largura */
+    width: 100%;
+    /* Espaçamento entre elementos */
+    padding: 1.5rem 2rem;
+    /* Transform e transition para fazer a animação na imagem e background para o fundo de figcaption */
+    transform: translateY(100%);
+    transition: transform 500ms;
+    background: linear-gradient(to top, rgb(0 0 0 / 0.64), rgb(0 0 0 / 0));
+
+    & > img {
+      /* Estilização da imagem dentro do container que ela estiver */
+      /* Largura */
+      width: 2rem;
+      /* Aspecto */
+      aspect-ratio: 1/1;
+      /* Ajuste de elemento dentro do container em que estiver */
+      object-fit: cover;
+      /* Arredondamento de borda */
+      border-radius: 50%;
+    }
+  }
+}
+
+/* Animação de figcaption para aparecer como legenda da imagem */
+@keyframes image-appear {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
