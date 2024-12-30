@@ -56,6 +56,58 @@ section.hero {
     /* Animação de slideup que seria um giro para cima com 5segundos de duração e infinito  */
     animation: slideUp 5s infinite ease;
   }
+  /* buttons */
+  & .buttons {
+    /* Display flex para poder alinhar no eixo Y e X com espaçamentos internos e externos */
+    display: flex;
+    /* Espaçamento entre elementos */
+    gap: 2rem;
+    /* Espaçamento externo */
+    margin-top: 3rem;
+
+    & .button {
+      /* Display flex para poder alinhar no eixo Y e X com espaçamentos internos e externos */
+      display: flex;
+      /* Alinhamento no eixo Y */
+      align-items: center;
+      /* Espaçamento entre elementos */
+      gap: 0.75rem;
+      /* Arredondamento de borda */
+      border-radius: 5rem;
+      /* Definindo a transicao de escala do botão mais suave */
+      transition: scale 350ms;
+
+      &.buy {
+        /* Espaçamento interno */
+        padding: 1.5rem 3rem;
+        /* Cor de fundo */
+        background-color: var(--snitap-sun);
+      }
+
+      &.play span {
+        /* Estilizando span dentro de play */
+        /* Espaçamento interno */
+        padding: 1.5rem;
+        /* Arredondamento de borda */
+        border-radius: 50%;
+        /* Cor de fundo */
+        background-color: white;
+        /* Display flex para poder alinhar no eixo Y e X com espaçamentos internos e externos */
+        display: flex;
+      }
+
+      &:hover {
+        /* Ao passar o mouse em cima o botão aumenta de tamanho */
+        scale: 1.1;
+      }
+    }
+
+    & .shadow {
+      /* Sombra deslocamento no eixo X, deslocamento no eixo Y 2px, 5px espalhamento no caso aqui existem 4 sombras*/
+      box-shadow: 0 2px 5px rgb(0 0 0 / 0.1), 0 9px 9px rgb(0 0 0 / 0.09),
+        0 20px 12px rgb(0 0 0 / 0.05), 0 36px 15px rgb(0 0 0 / 0.01);
+    }
+  }
 }
 
 @keyframes slideUp {
