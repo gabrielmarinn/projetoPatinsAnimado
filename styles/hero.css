@@ -54,7 +54,7 @@ section.hero {
     /* Definindo como block para que permaneça somente em linha com seu tamanho ja definido*/
     display: block;
     /* Animação de slideup que seria um giro para cima com 5segundos de duração e infinito  */
-    animation: slideUp 5s infinite ease;
+    animation: slideUp 5s 3s infinite ease;
   }
   /* buttons */
   & .buttons {
@@ -107,6 +107,103 @@ section.hero {
       box-shadow: 0 2px 5px rgb(0 0 0 / 0.1), 0 9px 9px rgb(0 0 0 / 0.09),
         0 20px 12px rgb(0 0 0 / 0.05), 0 36px 15px rgb(0 0 0 / 0.01);
     }
+  }
+
+  /* patins */
+  & > div:nth-child(2) {
+    /* Definindo com display block para que seu conteudo permanece em linha */
+    display: block;
+    /* Largura de 100% da caixa */
+    width: 100%;
+    /* Largura maxima */
+    max-width: 30.5rem;
+    /* Altura */
+    height: 30.5rem;
+
+    & .content {
+      /* Largura e Altura de 100% da caixa */
+      width: 100%;
+      height: 100%;
+      /* Position relative para poder alterar seu posicionamento */
+      position: relative;
+    }
+
+    & img {
+      /* Position absolute dentro do container em que estiver */
+      position: absolute;
+      /* Largura de 100% do seu tamanho */
+      width: 100%;
+    }
+
+    /* Toda imagem que conter class ellipse aplique */
+    & img[src*="ellipse"] {
+      /* Largura */
+      width: 94%;
+      /* Posicionamento cima e esquerda */
+      top: 3%;
+      left: 3%;
+      /* translateX de 200% para retirar o elemento a direita */
+      transform: translateX(200%);
+      /* Animação do elemento retornando a sua posição original em 3s de duração e 200ms de animação com ease para ficar mais suave e forwards para manter o estilo aplicado no elemento */
+      animation: slideIn 3s 200ms ease forwards;
+    }
+
+    /* Toda imagem que conter class patins aplique */
+    & img[src*="patins"] {
+      /* Aproximação de tela com eixo Z */
+      z-index: 1;
+      /* translateX de 200% para retirar o elemento a direita */
+      transform: translateX(200%);
+      /* Animação do elemento retornando a sua posição original em 3s de duração de animação com ease para ficar mais suave e forwards para manter o estilo aplicado no elemento */
+      animation: slideIn 3s ease forwards;
+    }
+
+    /* Toda imagem que conter class stars-1 aplique */
+    & img[src*="stars-1"] {
+      /* Largura maxima */
+      max-width: 5.5rem;
+      /* Posicionamento em cima 30% do container */
+      top: 30%;
+      /* Aproximação de tela no eixo Z */
+      z-index: 0;
+      /* Opacidade */
+      opacity: 0;
+      /* translateX de 400% para retirar o elemento a direita */
+      transform: translateX(400%);
+      /* Animação do elemento retornando a sua posição original em 2s de duração e 800ms de animação com ease para ficar mais suave e forwards para manter o estilo aplicado no elemento */
+      animation: slideIn 2s 800ms ease forwards, appear 100ms 800ms forwards;
+    }
+
+    /* Toda imagem que conter class stars-2 aplique */
+    & img[src*="stars-2"] {
+      /* Largura maxima */
+      max-width: 2.5rem;
+      /* Posicionamento direita e baixo */
+      right: 0;
+      bottom: 35%;
+      /* translateX de 400% para retirar o elemento a direita */
+      transform: translateX(400%);
+      /* Animação do elemento retornando a sua posição original em 2.2s de duração e 800ms de animação com ease para ficar mais suave e forwards para manter o estilo aplicado no elemento */
+      animation: slideIn 2.2s 800ms ease forwards;
+    }
+  }
+}
+
+@keyframes slideIn {
+  50% {
+    /* translateX de 20px para retirar o elemento a direita */
+    transform: translateX(-20px);
+  }
+
+  100% {
+    /* Retorna a sua posição original */
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
   }
 }
 
