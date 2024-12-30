@@ -1,0 +1,149 @@
+section.hero {
+  /* Largura maxima */
+  max-width: 80rem;
+  /* Largura total da caixa */
+  width: 100%;
+  /* Espaçamento interno de 2.5rem em cima e baixo e 2rem nas laterais */
+  padding: 2.5rem 2rem;
+  /* Centralizando na caixa com espaçamento interno nas laterais automatico */
+  margin-inline: auto;
+  /* Display flex para posicionar os elementos dentro da caixa */
+  display: flex;
+  /* Alinhando ao centro no eixo Y */
+  align-items: center;
+  /* Espaçamento por igual entre os elementos da caixa */
+  justify-content: space-between;
+  /* Escondendo qualquer tipo de transbordamento da caixa */
+  overflow: hidden;
+
+  & h1 {
+    /* Largura maxima */
+    max-width: 40rem;
+  }
+
+  & h1 div {
+    /* Definindo como inline-block para que se ajuste somente em uma linha */
+    display: inline-block;
+    /* Escondendo qualquer transbordamento */
+    overflow: hidden;
+    /* Altura */
+    height: 5rem;
+    /* Definindo largura como o minimo do conteudo da caixa */
+    width: min-content;
+    /* Definindo alinhamento vertical como bottom para o elemento permanecer embaixo */
+    vertical-align: bottom;
+  }
+
+  & h1 span:nth-child(1),
+  & h1 span:nth-child(4) {
+    /* Definindo cor para o 1 e 4 filho de span no container h1 */
+    color: var(--snitap-sky-mid);
+  }
+
+  & h1 span:nth-child(2) {
+    /* Definindo cor para o 2 filho de span no container h1 */
+    color: var(--snitap-joy-mid);
+  }
+
+  & h1 span:nth-child(3) {
+    /* Definindo cor para o 3 filho de span no container h1 */
+    color: var(--snitap-leaf-mid);
+  }
+
+  & h1 span {
+    /* Definindo como block para que permaneça somente em linha com seu tamanho ja definido*/
+    display: block;
+    /* Animação de slideup que seria um giro para cima com 5segundos de duração e infinito  */
+    animation: slideUp 5s infinite ease;
+  }
+}
+
+@keyframes slideUp {
+  /* radical static */
+  /* Do 0% ao 22% o elemento nao se move ainda na animação por isso o translateY(0) */
+  0%,
+  22% {
+    transform: translateY(0);
+  }
+
+  /* divertida in */
+  23% {
+    /* Animação de entrada da palavra divertida passando 15px a cima do ponto de parada */
+    transform: translateY(calc(-5rem - 15px));
+  }
+
+  25% {
+    /* Animação de entrada da palavra divertida retornando 10px abaixo do ponto de parada */
+    transform: translateY(calc(-5rem + 10px));
+  }
+
+  27% {
+    /* Animação de entrada da palavra divertida passando 5px a cima do ponto de parada */
+    transform: translateY(calc(-5rem - 5px));
+  }
+
+  29% {
+    /* Animação de entrada da palavra divertida retornando 5px abaixo do ponto de parada */
+    transform: translateY(calc(-5rem + 5px));
+  }
+
+  /* divertida static */
+  /* Do 33% ao 55% o elemento nao se move na animação por isso o translateY(-5rem) */
+  33%,
+  55% {
+    transform: translateY(-5rem);
+  }
+
+  /* saudável in */
+  56% {
+    /* Animação de entrada da palavra saudável passando 15px acima do ponto de parada */
+    transform: translateY(calc(-10rem - 15px));
+  }
+
+  58% {
+    /* Animação de entrada da palavra saudável retornando 10px abaixo do ponto de parada */
+    transform: translateY(calc(-10rem + 10px));
+  }
+
+  60% {
+    /* Animação de entrada da palavra saudável passando 5px acima do ponto de parada */
+    transform: translateY(calc(-10rem - 5px));
+  }
+
+  62% {
+    /* Animação de entrada da palavra saudável retornando 5px abaixo do ponto de parada */
+    transform: translateY(calc(-10rem + 5px));
+  }
+
+  /* saudável static */
+  /* Do 66% ao 88% o elemento nao se move na animação por isso o translateY(-10) */
+  66%,
+  88% {
+    transform: translateY(-10rem);
+  }
+
+  /* radical in */
+  89% {
+    /* Animação de entrada da palavra radical passando 15px acima do ponto de parada */
+    transform: translateY(calc(-15rem - 15px));
+  }
+
+  91% {
+    /* Animação de entrada da palavra radical retornando 10px abaixo do ponto de parada */
+    transform: translateY(calc(-15rem + 10px));
+  }
+
+  93% {
+    /* Animação de entrada da palavra radical passando 5px acima do ponto de parada */
+    transform: translateY(calc(-15rem - 5px));
+  }
+
+  95% {
+    /* Animação de entrada da palavra radical retornando 5px abaixo do ponto de parada */
+    transform: translateY(calc(-15rem + 5px));
+  }
+
+  100% {
+    transform: translateY(-15rem);
+  }
+}
